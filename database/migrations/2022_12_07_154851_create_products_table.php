@@ -14,12 +14,12 @@ class CreateProductsTable extends Migration
             $table->string('name')->unique();
             $table->integer('stock');
             $table->string('image');
-            $table->decimal('sell_price,');
-            $table->enum('status',['ACTIVE','DESACTIVIDE']->default('ACTIVE'));        
+            $table->decimal('sell_price');
+            $table->enum('status',['ACTIVE','DESACTIVED'])->default('ACTIVE');        
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')-on('categories');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->unsignedBigInteger('provider_id');
-            $table->foreign('provider_id')->references('id')-on('providers');
+            $table->foreign('provider_id')->references('id')->on('providers');
             $table->timestamps();
         });
     }
