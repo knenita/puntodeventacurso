@@ -19,7 +19,7 @@ class PurchaseController extends Controller
     {
         $providers = Provider::get();
         $products = Product::where('status', 'ACTIVE')->get();
-        return view('admin.purchase.create', compact('providers','products'));
+        return view('admin.purchase.create', compact('providers'));
     }
     public function store(StoreRequest $request)
     {
@@ -49,4 +49,5 @@ class PurchaseController extends Controller
         $providers = Provider::get();
         return view('admin.purchase.show', compact('purchase'));
     }
-}
+} 
+//VIDEO 8 CRUD VENTAS MIN 3:11
