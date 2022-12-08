@@ -15,7 +15,7 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' =>'required|string|max:255',
+            'name' =>'required|string|max:255|unique:providers',
             'email' =>'required|email|string|max:255|unique:providers',
             'document' =>'required|string|max:20|unique:providers',
             'address' =>'nullable|string|max:255',
@@ -29,6 +29,7 @@ class StoreRequest extends FormRequest
             'name.required'=>'Este campo es requerido.',
             'name.string'=>'El valor no es correcto.',
             'name.max'=>'Solo se permiten 255 caracteres.',
+            'name.unique'=>'Este campo es requerido.',
 
             'email.required'=>'Este campo es requerido.',
             'email.email'=>'No es un correo electrónico.',

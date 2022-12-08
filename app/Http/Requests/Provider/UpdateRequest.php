@@ -14,7 +14,7 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' =>'required|string|max:255',
+            'name' =>'required|string|unique,name,'.$this->route('provider')->id.'|max:255',
             'email' =>'required|email|string|unique:providers,email,'.$this->route('provider')->id.'|max:255',
             'document' =>'required|string|unique:providers,document,'.$this->route('provider')->id.'|max:20',
             'address' =>'nullable|string|max:255',
@@ -28,6 +28,7 @@ class UpdateRequest extends FormRequest
             'name.required'=>'Este campo es requerido.',
             'name.string'=>'El valor no es correcto.',
             'name.max'=>'Solo se permiten 255 caracteres.',
+            'name.unique'=>'Este campo es requerido.',
 
             'email.required'=>'Este campo es requerido.',
             'email.email'=>'No es un correo electrónico.',
